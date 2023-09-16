@@ -1,0 +1,5 @@
+### 1. helloServlet 등록 하여 helloservlet service 동작 테스트
+GET http://localhost:8080/hello
+
+### 2. helloServlet 파라미터 던지고 받기
+GET http://localhost:8080/hello?username=helloServlet
