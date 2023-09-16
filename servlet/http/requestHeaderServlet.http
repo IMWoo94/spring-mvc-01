@@ -1,0 +1,11 @@
+### 1. requset header start line
+GET http://localhost:8080/request-header
+
+### 2. request header getContentType 주기
+POST http://localhost:8080/request-header
+Content-Type: application/json
+Content-Encoding: UTF-8
+
+{
+  "hello": "aa"
+}
