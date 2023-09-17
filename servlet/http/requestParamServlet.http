@@ -1,0 +1,9 @@
+
+### 1. request param get
+GET http://localhost:8080/request-param?username=hello&age=20
+
+### 2. request param get 이름이 같은 복수 파라미터 조회
+GET http://localhost:8080/request-param?username=hello&age=20&username=leemeawoo
+
+
+
