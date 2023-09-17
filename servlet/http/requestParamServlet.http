@@ -5,5 +5,19 @@ GET http://localhost:8080/request-param?username=hello&age=20
 ### 2. request param get 이름이 같은 복수 파라미터 조회
 GET http://localhost:8080/request-param?username=hello&age=20&username=leemeawoo
 
+### 3. request param post form
+POST http://localhost:8080/request-param
+Content-Type: application/x-www-form-urlencoded
 
+username = 이상민 &
+age = 30
+
+### 4. request param post form
+POST http://localhost:8080/request-param
+Content-Type: application/json
+
+{
+  "username": "이상민",
+  "age": 30
+}
 
