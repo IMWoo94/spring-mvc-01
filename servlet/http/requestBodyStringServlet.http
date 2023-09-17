@@ -1,0 +1,7 @@
+
+### 1. request body String text
+POST http://localhost:8080/request-body-string
+Content-Type: text/plain
+Content-Encoding: UTF-8
+
+hello 이상민
