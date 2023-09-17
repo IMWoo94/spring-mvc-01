@@ -1,0 +1,4 @@
+### 1. memberFormServlet response member list
+GET http://localhost:8080/servlet/members
+Content-Type: text/html
+Content-Encoding: UTF-8

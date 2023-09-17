@@ -1,0 +1,7 @@
+### 1. memberSaveServlet member save
+POST http://localhost:8080/servlet/members/save
+Content-Type: application/x-www-form-urlencoded
+Content-Encoding: UTF-8
+
+username = spring &
+age = 20

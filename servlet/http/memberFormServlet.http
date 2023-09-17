@@ -1,0 +1,4 @@
+### 1. memberFormServlet response member html
+GET http://localhost:8080/servlet/members/new-form
+Content-Type: text/html
+Content-Encoding: UTF-8
