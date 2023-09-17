@@ -1,0 +1,2 @@
+### 1. HTML response
+GET http://localhost:8080/response-json
