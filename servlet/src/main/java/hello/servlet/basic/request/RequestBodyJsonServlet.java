@@ -33,8 +33,8 @@ public class RequestBodyJsonServlet extends HttpServlet {
 		// json 데이터를 -> helloData 객체로 변환
 		HelloData helloData = objectMapper.readValue(messageBody, HelloData.class);
 
-		System.out.println("helloData.username = " + helloData.getUsername());
-		System.out.println("helloData.age = " + helloData.getAge());
+		// System.out.println("helloData.username = " + helloData.getUsername());
+		//System.out.println("helloData.age = " + helloData.getAge());
 
 	}
 }

@@ -1,6 +1,6 @@
 
-### 1. request body Json text
-POST http://localhost:8080/request-body-json
+### 1. response header
+POST http://localhost:8080/response-header
 Content-Type: application/json
 Content-Encoding: UTF-8
 
