@@ -1,0 +1,53 @@
+### 1. json simple version
+POST http://localhost:8080/request-body-json-v1
+Content-Type: application/json
+Content-Encoding: UTF-8
+
+{
+  "username": "hello",
+  "age": 20
+}
+
+### 2. json simple version
+### @RequestBody, @ResponseBody 단순 사용
+POST http://localhost:8080/request-body-json-v2
+Content-Type: application/json
+Content-Encoding: UTF-8
+
+{
+  "username": "hello",
+  "age": 20
+}
+
+### 3. json simple version
+### @RequestBody, @ResponseBody 객체 바로 쓰기
+POST http://localhost:8080/request-body-json-v3
+Content-Type: application/json
+Content-Encoding: UTF-8
+
+{
+  "username": "hello",
+  "age": 20
+}
+
+### 4. json simple version
+### Entity 사용
+POST http://localhost:8080/request-body-json-v4
+Content-Type: application/json
+Content-Encoding: UTF-8
+
+{
+  "username": "hello",
+  "age": 20
+}
+
+### 5. json simple version
+### 리턴 json 헝태로
+POST http://localhost:8080/request-body-json-v5
+Content-Type: application/json
+Content-Encoding: UTF-8
+
+{
+  "username": "hello",
+  "age": 20
+}
