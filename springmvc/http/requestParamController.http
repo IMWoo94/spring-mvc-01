@@ -1,3 +1,119 @@
 ### 1. 단순 HttpServletRequest 가 제공하는 요청 파라미터 사용
 ### request.getParameter()
 GET http://localhost:8080/request-param-v1?username=hello&age=20
+
+### 1-1. 단순 HttpServletRequest 가 제공하는 요청 파라미터 사용
+### request.getParameter()
+POST http://localhost:8080/request-param-v1
+Content-Type: application/x-www-form-urlencoded
+
+username = hello &
+age = 20
+
+### 2. @RequestParam 가 제공하는 요청 파라미터 사용
+GET http://localhost:8080/request-param-v2?username=hello&age=20
+
+### 2-1. @RequestParam 가 제공하는 요청 파라미터 사용
+POST http://localhost:8080/request-param-v2
+Content-Type: application/x-www-form-urlencoded
+
+username = hello &
+age = 20
+
+### 3. @RequestParam name 생략 단 변수명이 동일해야 한다.
+GET http://localhost:8080/request-param-v3?username=hello&age=20
+
+### 3-1. @RequestParam name 생략 단 변수명이 동일해야 한다.
+POST http://localhost:8080/request-param-v3
+Content-Type: application/x-www-form-urlencoded
+
+username = hello &
+age = 20
+
+### 4. @RequestParam 마저도 생략 단 변수명이 동일해야 하고, 단순 타입만 가능하다
+GET http://localhost:8080/request-param-v4?username=hello&age=20
+
+### 4-1. @RequestParam 마저도 생략 단 변수명이 동일해야 하고, 단순 타입만 가능하다
+POST http://localhost:8080/request-param-v4
+Content-Type: application/x-www-form-urlencoded
+
+username = hello &
+age = 20
+
+### 5. @RequestParam required 처리 name 필수, age 옵션
+POST http://localhost:8080/request-param-required
+Content-Type: application/x-www-form-urlencoded
+
+username = hello &
+age = 20
+
+### 5-1. @RequestParam required 처리 name 필수, age 옵션
+POST http://localhost:8080/request-param-required
+Content-Type: application/x-www-form-urlencoded
+
+username =
+
+
+
+
+### 5-2. @RequestParam required 처리 name 필수, age 옵션
+### name 없으면 400 에러 만약 age 값이 Integer가 아닌 기본타입에 null을 넣으면 500 에러
+POST http://localhost:8080/request-param-required
+Content-Type: application/x-www-form-urlencoded
+
+### 6. @RequestParam default 처리
+POST http://localhost:8080/request-param-default
+Content-Type: application/x-www-form-urlencoded
+
+username = hello &
+age = 20
+
+### 6-1. @RequestParam default 처리
+### default 로 선언해두면 빈값도 default 값으로 들어가게 된다.
+POST http://localhost:8080/request-param-default
+Content-Type: application/x-www-form-urlencoded
+
+username =
+
+
+
+
+### 6-2. @RequestParam default 처리
+POST http://localhost:8080/request-param-default
+Content-Type: application/x-www-form-urlencoded
+
+### 7. @RequestParma map 으로 한번에 받기
+POST http://localhost:8080/request-param-map
+Content-Type: application/x-www-form-urlencoded
+
+username = hello &
+age = 20
+
+### 7-1. @RequestParma map 여러 파라미터값을 가지는 파라미터 한번에 받기
+### 맨앞으 한개의 값만 나옵니다.
+POST http://localhost:8080/request-param-map
+Content-Type: application/x-www-form-urlencoded
+
+username = hello &
+age = 20 &
+age = 30
+
+### 7-2. @RequestParma map 파라미터 한번에 받기 key 대문자 소문자 확인
+### map 으로 전달 받을 시 key 는 전부다 소문자로 변환됩니다. 정상적으로 받기 위해서는 multivalueMap 사용
+POST http://localhost:8080/request-param-map
+Content-Type: application/x-www-form-urlencoded
+
+Username = hello &
+Age = 20 &
+age = 30
+
+### 7-3. @RequestParma multivalueMap 여러 파라미터값을 가지는 파라미터 한번에 받기
+### key 이름 그대로 대문자 소문자 유지 됩니다.
+POST http://localhost:8080/request-param-multi
+Content-Type: application/x-www-form-urlencoded
+
+username = hello &
+age = 20 &
+age = 30 &
+TEST = asdasd
+
