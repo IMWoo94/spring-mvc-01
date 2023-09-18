@@ -1,0 +1,2 @@
+### HTTP 헤더 정보 조회하기~
+GET http://localhost:8080/headers
