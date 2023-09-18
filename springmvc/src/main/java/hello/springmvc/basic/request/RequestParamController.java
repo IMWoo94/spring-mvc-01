@@ -8,11 +8,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import hello.springmvc.basic.HelloData;
+import hello.springmvc.basic.TestData;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -140,6 +144,51 @@ public class RequestParamController {
 			log.info("age info = {}", s);
 		}
 		log.info("username={}, age={}", paramMap.get("username").get(0), paramMap.get("age"));
+		return "ok";
+	}
+
+	/**
+	 * @ModelAttribute 사용
+	 * 참고: model.addAttribute(helloData) 코드도 함께 자동 적용됨, 뒤에 model을 설명할 때
+	 * 자세히 설명
+	 */
+	@ResponseBody
+	@RequestMapping("/model-attribute-v1")
+	public String modelAttributeV1(@ModelAttribute("viewModel") HelloData helloData, Model model,
+		@ModelAttribute(binding = false) TestData testData,
+		@ModelAttribute(name = "testData1", binding = false) TestData testData1) {
+		System.out.println("RequestParamController.modelAttributeV1");
+
+		log.info("username={}, age={}", helloData.getUsername(), helloData.getAge());
+		log.info("helloData = {}", helloData);
+
+		log.info("testData = {}", testData);
+		log.info("testData = {}", testData1);
+
+		// 나는 분명 model 객체에 helloData를 넣지 않앗다. 그런데 들어가 있다!! 이게 @ModelAttribute가 제공하는 또 다른 기능
+		// 요거를 view 로 넘겨주면 view 에서는 helloData로 꺼내 쓸수 있겟죠?
+		log.info("@ModelAttribute model 자동 적용 = {}", model.getAttribute("viewModel").toString());
+		log.info("@ModelAttribute model 자동 적용 = {}", model.getAttribute("testData").toString());
+		for (Map.Entry<String, Object> stringObjectEntry : model.asMap().entrySet()) {
+			System.out.println(stringObjectEntry.getValue());
+			System.out.println(stringObjectEntry.getKey());
+		}
+
+		return "ok";
+	}
+
+	/**
+	 * @ModelAttribute 생략 가능
+	 * String, int 같은 단순 타입 = @RequestParam
+	 * argument resolver 로 지정해둔 타입 외 = @ModelAttribute
+	 */
+	@ResponseBody
+	@RequestMapping("/model-attribute-v2")
+	public String modelAttributeV2(HelloData helloData) {
+		System.out.println("RequestParamController.modelAttributeV2");
+
+		log.info("username={}, age={}", helloData.getUsername(), helloData.getAge());
+		log.info("helloData = {}", helloData);
 		return "ok";
 	}
 }
